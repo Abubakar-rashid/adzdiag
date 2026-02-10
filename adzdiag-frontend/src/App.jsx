@@ -166,99 +166,54 @@ function App() {
 
   return (
     <div className="app">
-      <header className="hero">
-        <nav className="nav">
-          <div className="brand">
-            <span className="brand-mark">ADZ</span>
-            <span className="brand-name">Diag</span>
-          </div>
-          <div className="nav-links">
-            <a href="#tools">Tools</a>
-            <a href="#workflow">Workflow</a>
-            <a href="#support">Support</a>
-          </div>
-          <button className="button button-primary">Get Started</button>
-        </nav>
-
-        <div className="hero-content">
-          <div>
-            <p className="eyebrow">Automotive ECU Software Suite</p>
-            <h1>ADZDiag Tools for Secure ECU Workflows</h1>
-            <p className="hero-subtitle">
-              A green-themed, workshop-ready platform for diagnostics, immobilizer utilities, and
-              firmware conversions—built for speed, clarity, and compliance.
-            </p>
-            <div className="hero-actions">
-              <button className="button button-primary">Request Access</button>
-              <button className="button button-ghost">View Documentation</button>
-            </div>
-            <div className="hero-metrics">
-              <div>
-                <strong>120+</strong>
-                <span>Supported ECUs</span>
-              </div>
-              <div>
-                <strong>30k+</strong>
-                <span>Workshop Sessions</span>
-              </div>
-              <div>
-                <strong>99.9%</strong>
-                <span>Checksum Success</span>
-              </div>
-            </div>
-          </div>
-          <div className="hero-panel">
-            <div className="panel-header">Live Workspace</div>
-            <div className="panel-body">
-              <div className="panel-row">
-                <span>Project</span>
-                <strong>VAG DSG TCU</strong>
-              </div>
-              <div className="panel-row">
-                <span>Status</span>
-                <strong className="status-green">Secure</strong>
-              </div>
-              <div className="panel-row">
-                <span>Actions</span>
-                <strong>Checksum + Export</strong>
-              </div>
-              <div className="panel-graph">
-                <div className="bar" />
-                <div className="bar" />
-                <div className="bar" />
-                <div className="bar" />
-                <div className="bar" />
-              </div>
-              <p className="panel-note">Automated checks and compliance notes included.</p>
-            </div>
-          </div>
+      <nav className="top-nav">
+        <div className="brand">
+          <span className="brand-mark">ADZ</span>
+          <span className="brand-name">DIAG</span>
         </div>
-      </header>
+        <div className="nav-links">
+          <a href="#home">HOME</a>
+          <a href="#dtc-editor">DTC EDITOR</a>
+          <a href="#immobilizer">IMMOBILIZER</a>
+          <a href="#firmware">FIRMWARE CONVERSION</a>
+          <a href="#seed-key">SEED-KEY</a>
+          <a href="#purchase">PURCHASE</a>
+          <a href="#news">NEWS</a>
+          <a href="#contact">CONTACT</a>
+        </div>
+      </nav>
+
+      <div className="hero-banner">
+        <div className="circuit-overlay"></div>
+      </div>
+      
+      <div className="title-section">
+        <h1 className="main-title">ADZDiag</h1>
+        <p className="main-subtitle">Automotive ECU Software Solutions</p>
+        <button className="button button-buy">BUY NOW!</button>
+      </div>
 
       <section id="tools" className="section">
-        <div className="section-header">
-          <div>
-            <h2>Supported Tools</h2>
-            <p>Explore the ADZDiag toolbox with guided workflows and verified outputs.</p>
-          </div>
-          <div className="filters">
-            <input
-              type="text"
-              placeholder="Search tools"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-            />
-            <div className="chip-group">
-              {categories.map((item) => (
-                <button
-                  key={item}
-                  className={item === category ? 'chip chip-active' : 'chip'}
-                  onClick={() => setCategory(item)}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
+        <h2 className="section-title">SUPPORTED FUNCTIONS</h2>
+        
+        <div className="filters-container">
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="Search tools..."
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+          />
+          <div className="chip-group">
+            {categories.map((item) => (
+              <button
+                key={item}
+                className={item === category ? 'chip chip-active' : 'chip'}
+                onClick={() => setCategory(item)}
+              >
+                {item}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -278,85 +233,8 @@ function App() {
         </div>
       </section>
 
-      <section id="workflow" className="section section-muted">
-        <div className="workflow">
-          <div>
-            <h2>Built for workshop flow</h2>
-            <p>
-              Fast file handling, secure backups, and clear validation steps keep technicians
-              confident at every stage of the process.
-            </p>
-            <ul className="workflow-list">
-              <li>
-                <strong>1. Import</strong>
-                <span>Load ECU or TCU files with automatic detection.</span>
-              </li>
-              <li>
-                <strong>2. Edit</strong>
-                <span>Apply guided changes with validation checks.</span>
-              </li>
-              <li>
-                <strong>3. Verify</strong>
-                <span>Run checksum correction and compliance logs.</span>
-              </li>
-              <li>
-                <strong>4. Export</strong>
-                <span>Deliver verified outputs with audit-ready reports.</span>
-              </li>
-            </ul>
-          </div>
-          <div className="workflow-card">
-            <h3>Interactive Insights</h3>
-            <p>See status, risks, and compatibility at a glance.</p>
-            <div className="badge-grid">
-              <div className="badge">Checksum: OK</div>
-              <div className="badge">Backup: Ready</div>
-              <div className="badge">Files: 4</div>
-              <div className="badge">Status: Verified</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="support" className="section">
-        <div className="support">
-          <div>
-            <h2>Support that stays with you</h2>
-            <p>
-              Get onboarding, best-practice workflows, and secure updates for your ADZDiag
-              deployment.
-            </p>
-          </div>
-          <div className="support-cards">
-            <div className="support-card">
-              <h4>Guided Setup</h4>
-              <p>Personalized onboarding with tailored tool profiles.</p>
-            </div>
-            <div className="support-card">
-              <h4>Secure Updates</h4>
-              <p>Frequent compatibility packs and checksum improvements.</p>
-            </div>
-            <div className="support-card">
-              <h4>Workshop Portal</h4>
-              <p>Track jobs, exports, and compliance reports in one place.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <footer className="footer">
-        <div>
-          <div className="brand">
-            <span className="brand-mark">ADZ</span>
-            <span className="brand-name">Diag</span>
-          </div>
-          <p>Green-first automotive diagnostics and ECU tooling.</p>
-        </div>
-        <div className="footer-links">
-          <a href="#tools">Tools</a>
-          <a href="#workflow">Workflow</a>
-          <a href="#support">Support</a>
-        </div>
+        <p>Copyright © 2026 ADZDiag - All Rights Reserved.</p>
       </footer>
 
       {activeTool && (
