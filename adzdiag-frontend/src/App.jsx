@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import logo from '../images/logo.png'
 import './App.css'
 
 const tools = [
@@ -168,8 +169,7 @@ function App() {
     <div className="app">
       <nav className="top-nav">
         <div className="brand">
-          <span className="brand-mark">ADZ</span>
-          <span className="brand-name">DIAG</span>
+          <img className="brand-logo" src={logo} alt="ADZDiag logo" />
         </div>
         <div className="nav-links">
           <a href="#home">HOME</a>
